@@ -15,7 +15,7 @@ The list of supported currency codes:
 
 * https://docs.openexchangerates.org/docs/supported-currencies
 
-### Build
+## Build
 
 To build and test the app, run:
 
@@ -25,7 +25,7 @@ Jacoco shows 100% code coverage, the report is located at:
 
 `./build/reports/jacoc/test/html/index.html`
 
-### Run
+## Run
 
 To run the app:
 
@@ -43,7 +43,7 @@ Try refreshing the page with Ctrl+F5...
 
 # Docker
 
-### Build
+## Build
 
 To build `rich-or-broke:1.0` app as a docker image and it push to https://hub.docker.com/, run:
 
@@ -53,7 +53,7 @@ To build `rich-or-broke:1.0` app as a docker image and it push to https://hub.do
 
 `./gradlew clean build jib`
 
-### Run
+## Run
 
 To run a pre-built docker image:
 
@@ -63,7 +63,7 @@ or
 
 `docker run -it -p 0.0.0.0:8080:8080 deadmate/rich-or-broke:1.0`
 
-### Customize 
+## Customize 
 
 To customize app's behaviour there's no need to recompile it. Before running the app simply pass new settings to it via environment variables.
 
