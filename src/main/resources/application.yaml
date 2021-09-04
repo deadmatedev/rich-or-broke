@@ -1,0 +1,43 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: ${FEIGN_CONNECT_TIMEOUT:3000}
+        readTimeout: ${FEIGN_READ_TIMEOUT:3000}
+        loggerLevel: ${FEIGN_LOGGER_LEVEL:basic}
+
+logging:
+  level:
+    com.deadmate.richorbroke:
+      client:
+        OpenExchangeRatesClient: DEBUG
+        GiphyClient: DEBUG
+      service.impl:
+        RichOrBrokeTrendService: DEBUG
+
+client:
+  config:
+    openexchangerates:
+      url: ${OPENEXCHANGERATES_URL:https://openexchangerates.org/api}
+      appId: ${OPENEXCHANGERATES_APPID:b96a08ac38bc4910b9d3de2c71764859}
+    giphy:
+      url: ${GIPHY_URL:https://api.giphy.com/v1}
+      apiKey: ${GIPHY_APIKEY:brGQqlRAgW2GH0KfKRycU5WcUraHGnkA}
+      maxRandomOffset: ${GIPHY_MAX_RANDOM_OFFSET:100}
+      imageUrlFormat: ${GIPHY_IMAGE_URL_FORMAT:https://i.giphy.com/media/%/giphy.gif}
+
+service:
+  config:
+    richorbroke:
+      baseCurrencyCode: ${BASE_CURRENCY:RUB}
+      upTrendQuery: ${UPTREND_QUERY:rich}
+      downTrendQuery: ${DOWNTREND_QUERY:broke}
+      zeroTrendQuery: ${ZEROTREND_QUERY:broke}
+      helpUrl: ${HELP_URL:https://docs.openexchangerates.org/docs/supported-currencies}
+
+spring:
+  web:
+    resources:
+      add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true

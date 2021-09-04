@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  rich-or-broke:
+    image: deadmate/rich-or-broke:1.0
+    container_name: rich-or-broke
+    ports:
+      - 8080:8080
+    # environment:
+    #  - BASE_CURRENCY=EUR
+    #  - UPTREND_QUERY=happy
+    #  - DOWNTREND_QUERY=sad
+    #  - ZEROTREND_QUERY=frozen
+    #  - GIPHY_MAX_RANDOM_OFFSET=5
