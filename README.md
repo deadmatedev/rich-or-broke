@@ -1,3 +1,6 @@
+![jacoco](https://img.shields.io/badge/coverage-100%25-brightgreen)
+![dockerhub](https://img.shields.io/docker/pulls/deadmate/rich-or-broke.svg)
+
 # rich-or-broke
 
 A simple Spring Boot microservice that returns random gifs based on exchange rates. It exposes just a single GET
