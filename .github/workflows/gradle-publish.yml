@@ -24,5 +24,11 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Test with Gradle
-      run: gradle clean test build
+    - name: Build with Gradle
+      run: gradle clean build
+      
+    - name: Publish to Dockerhub
+      run: gradle jib
+      env:
+        DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+        DOCKERHUB_PWD: ${{ secrets.DOCKERHUB_PWD }}
