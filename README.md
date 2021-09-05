@@ -1,4 +1,4 @@
-[![gradle build](https://github.com/deadmatedev/rich-or-broke/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/deadmatedev/rich-or-broke/actions/workflows/gradle-publish.yml)
+[![build](https://github.com/deadmatedev/rich-or-broke/actions/workflows/build.yml/badge.svg)](https://github.com/deadmatedev/rich-or-broke/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=deadmatedev_rich-or-broke&metric=alert_status)](https://sonarcloud.io/dashboard?id=deadmatedev_rich-or-broke)
 [![jacoco](https://img.shields.io/badge/coverage-100%25-green)](https://github.com/deadmatedev/rich-or-broke/suites/3686775480/artifacts/89833041)
 [![dockerhub](https://img.shields.io/docker/pulls/deadmate/rich-or-broke.svg)](https://hub.docker.com/repository/docker/deadmate/rich-or-broke)
