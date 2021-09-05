@@ -53,7 +53,7 @@ class TrendControllerIntegrationTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.IMAGE_GIF))
-                .andExpect(content().string("GIF"));
+                .andExpect(content().bytes("GIF".getBytes(StandardCharsets.UTF_8)));
     }
 
     @Test
