@@ -25,7 +25,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Gradle
-      run: gradle clean build
+      run: gradle clean test build
       
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
