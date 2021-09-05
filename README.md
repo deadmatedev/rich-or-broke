@@ -1,4 +1,5 @@
 [![gradle build](https://github.com/deadmatedev/rich-or-broke/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/deadmatedev/rich-or-broke/actions/workflows/gradle-publish.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=deadmatedev_rich-or-broke&metric=alert_status)](https://sonarcloud.io/dashboard?id=deadmatedev_rich-or-broke)
 [![jacoco](https://img.shields.io/badge/coverage-100%25-green)](https://github.com/deadmatedev/rich-or-broke/suites/3686775480/artifacts/89833041)
 [![dockerhub](https://img.shields.io/docker/pulls/deadmate/rich-or-broke.svg)](https://hub.docker.com/repository/docker/deadmate/rich-or-broke)
 
@@ -11,9 +12,13 @@ rate trend calculated for that currency code. Exchange rates are provided by htt
 
 ## Live Demo
 
-The app is deployed here:
+The app is deployed here, feel free to play around with it:
 
 * http://kakoo.hopto.org/trend/USD
+* http://kakoo.hopto.org/trend/EUR
+* http://kakoo.hopto.org/trend/BTC
+* http://kakoo.hopto.org/trend/SLL
+* http://kakoo.hopto.org/trend/RUB
 
 The list of supported currency codes:
 
@@ -72,7 +77,7 @@ or
 To customize app's behaviour there's no need to recompile it. Before running the app simply pass new settings to it via environment variables.
 
 You can either:
-* edit `docker-compse.yaml` (uncomment `environment` section)
+* edit `docker-compose.yaml` (uncomment `environment` section)
 * or run:
 
 `export BASE_CURRENCY=RUB`
