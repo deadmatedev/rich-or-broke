@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jacoco-code-coverage-report
-        path: build/reports/jacoc/test/html/
+        path: build/reports/jacoco/test/html/
       
     - name: Publish to Dockerhub
       run: gradle jib
