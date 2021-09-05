@@ -1,3 +1,4 @@
+[![gradle build](https://github.com/deadmatedev/rich-or-broke/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/deadmatedev/rich-or-broke/actions/workflows/gradle-publish.yml)
 ![jacoco](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![dockerhub](https://img.shields.io/docker/pulls/deadmate/rich-or-broke.svg)
 
