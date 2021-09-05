@@ -46,6 +46,8 @@ dependencyManagement {
 
 test {
 	useJUnitPlatform()
+    dependsOn cleanTest
+    testLogging.showStandardStreams = true
 }
 
 jacocoTestReport {
