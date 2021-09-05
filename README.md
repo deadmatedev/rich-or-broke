@@ -32,7 +32,7 @@ To build and test the app, run:
 
 Jacoco shows 100% code coverage, the report is located at:
 
-`./build/reports/jacoc/test/html/index.html`
+`./build/reports/jacoco/test/html/index.html`
 
 ## Run
 
