@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 public class RichOrBrokeApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RichOrBrokeApplication.class);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RichOrBrokeApplication.class);
+    }
 }

@@ -1,9 +1,9 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '2.5.4'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'org.barfuin.gradle.jacocolog' version '1.2.4'
-	id 'com.google.cloud.tools.jib' version '3.1.4'
+    id 'java'
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.barfuin.gradle.jacocolog' version '1.2.4'
+    id 'com.google.cloud.tools.jib' version '3.1.4'
 }
 
 group = 'com.deadmate'
@@ -11,92 +11,89 @@ version = '1.0'
 sourceCompatibility = '11'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 ext {
-	set('springBootVersion', '2.5.4')
-	set('springCloudVersion', '2020.0.3')
-	set('springFeignVersion', '3.0.3')
-	set('lombokVersion', '1.18.20')
-	set('jacocoVersion', '0.8.6')
+    set('springBootVersion', '2.5.4')
+    set('springCloudVersion', '2020.0.3')
+    set('springFeignVersion', '3.0.3')
+    set('lombokVersion', '1.18.20')
+    set('jacocoVersion', '0.8.6')
 }
 
 dependencies {
-	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-	implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springFeignVersion}"
-	compileOnly "org.projectlombok:lombok:${lombokVersion}"
-	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-	testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
-	implementation "org.jacoco:org.jacoco.cli:${jacocoVersion}"
-	implementation "org.jacoco:org.jacoco.agent:${jacocoVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springFeignVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    implementation "org.jacoco:org.jacoco.cli:${jacocoVersion}"
+    implementation "org.jacoco:org.jacoco.agent:${jacocoVersion}"
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-	}
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
 
 test {
-	useJUnitPlatform()
-    dependsOn cleanTest
-    testLogging.showStandardStreams = true
+    useJUnitPlatform()
+    // dependsOn cleanTest
+    // testLogging.showStandardStreams = true
+    finalizedBy jacocoTestReport
 }
 
 jacocoTestReport {
-	reports {
-		xml.enabled true
-		csv.enabled false
-		html.enabled true
-	}
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled true
+    }
 
-	afterEvaluate {
-		classDirectories.setFrom(files(classDirectories.files.collect {
-			fileTree(dir: it, exclude: [ '**\\model\\**', '**\\config\\**' ])
-		}))
-	}
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [ '**\\model\\**', '**\\config\\**' ])
+        }))
+    }
 }
 
 jacocoTestCoverageVerification {
-	violationRules {
-		rule {
-			enabled = true
-			element = 'CLASS'
-			excludes = ['*.model.*', '*.config.*']
-			limit {
-				minimum = 1.0
-			}
-		}
-	}
+    violationRules {
+        rule {
+            enabled = true
+            element = 'CLASS'
+            excludes = ['*.model.*', '*.config.*']
+            limit {
+                minimum = 1.0
+            }
+        }
+    }
 }
 
 check {
-	dependsOn jacocoTestCoverageVerification
-}
-
-test {
-	finalizedBy jacocoTestReport
+    dependsOn jacocoTestCoverageVerification
 }
 
 jib {
-	def user = System.getenv('DOCKERHUB_USER') ?: ''
-	def pwd = System.getenv('DOCKERHUB_PWD') ?: ''
-	from {
-		image = 'azul/zulu-openjdk-alpine:11.0.10-jre'
-	}
-	to {
-		image = "${user}/${project.name}:${project.version}"
-		tags = [ project.version, 'latest' ]
-		auth {
-			username = user
-			password = pwd
-		}
-	}
+    def user = System.getenv('DOCKERHUB_USER') ?: ''
+    def pwd = System.getenv('DOCKERHUB_PWD') ?: ''
+    from {
+        image = 'azul/zulu-openjdk-alpine:11.0.10-jre'
+    }
+    to {
+        image = "${user}/${project.name}:${project.version}"
+        tags = [ project.version, 'latest' ]
+        auth {
+            username = user
+            password = pwd
+        }
+    }
 }

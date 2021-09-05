@@ -16,15 +16,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(value = TrendController.class)
 @AutoConfigureMockMvc(addFilters = false)
@@ -52,12 +53,15 @@ class TrendControllerIntegrationTest {
                     outputStream.close();
                 });
         // when
-        mockMvc.perform(get("/trend/USD"))
+        MvcResult result = mockMvc.perform(get("/trend/USD"))
+            .andExpect(request().asyncStarted())
+            .andReturn();
         // then
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.IMAGE_GIF))
-                .andExpect(content().bytes("GIF".getBytes(StandardCharsets.UTF_8)));
+        mockMvc.perform(asyncDispatch(result))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.IMAGE_GIF))
+            .andExpect(content().bytes("GIF".getBytes(StandardCharsets.UTF_8)));
     }
 
     @Test
