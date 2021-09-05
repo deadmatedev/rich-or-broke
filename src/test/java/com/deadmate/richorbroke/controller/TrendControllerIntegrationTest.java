@@ -46,7 +46,11 @@ class TrendControllerIntegrationTest {
                         3L,
                         "uhf87asdh"));
         when(streamingService.getStreamFrom("about:blank"))
-                .thenReturn(outputStream -> outputStream.write("GIF".getBytes(StandardCharsets.UTF_8)));
+                .thenReturn(outputStream -> {
+                    outputStream.write("GIF".getBytes(StandardCharsets.UTF_8));
+                    outputStream.flush();
+                    outputStream.close();
+                });
         // when
         mockMvc.perform(get("/trend/USD"))
         // then

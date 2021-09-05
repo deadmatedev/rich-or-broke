@@ -15,6 +15,8 @@ public class AsyncStreamingService implements StreamingService {
         return outputStream -> {
             try (InputStream inputStream = new URL(url).openStream()) {
                 inputStream.transferTo(outputStream);
+                outputStream.flush();
+                outputStream.close();
             }
         };
     }
