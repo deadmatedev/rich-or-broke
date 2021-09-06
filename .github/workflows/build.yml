@@ -49,13 +49,18 @@ jobs:
         name: jacoco-code-coverage-report
         path: build/reports/jacoco/test/html/
     
-    - name: Upload code coverage report to Codecov.io
+    - name: Publish to Codecov.io
       uses: codecov/codecov-action@v2
       with:
         verbose: true
       
-    - name: Publish to Dockerhub
+    - name: Publish to DockerHub
       run: gradle jib
       env:
         DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
         DOCKERHUB_PWD: ${{ secrets.DOCKERHUB_PWD }}
+
+    - name: Publish to GitHub Packages
+      run: gradle publish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

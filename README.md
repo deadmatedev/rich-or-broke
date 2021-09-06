@@ -55,7 +55,7 @@ Try refreshing the page with Ctrl+F5...
 
 ## Build
 
-To build `rich-or-broke:1.0` app as a docker image and it push to https://hub.docker.com/, run:
+To build `rich-or-broke:1.0` app as a docker image and push it to https://hub.docker.com/, run:
 
 `export DOCKERHUB_USER=<user>`
 
