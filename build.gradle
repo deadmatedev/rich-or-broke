@@ -28,6 +28,7 @@ ext {
     set('springFeignVersion', '3.0.3')
     set('lombokVersion', '1.18.20')
     set('jacocoVersion', '0.8.6')
+    set('githubUser', 'deadmatedev')
 }
 
 dependencies {
@@ -102,22 +103,20 @@ jib {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "deadmatedev_rich-or-broke"
-        property "sonar.organization", "deadmatedev"
+        property "sonar.projectKey", "${githubUser}_rich-or-broke"
+        property "sonar.organization", "${githubUser}"
         property "sonar.host.url", "https://sonarcloud.io"
     }
 }
 
 publishing {
-    def user = "deadmatedev"
-    def pwd = System.getenv("GITHUB_TOKEN")
     repositories {
         maven {
             name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/${user}/${project.name}"
+            url = "https://maven.pkg.github.com/${githubUser}/${project.name}"
             credentials {
-                username = user
-                password = pwd
+                username = githubUser
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
