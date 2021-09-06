@@ -1,6 +1,7 @@
 [![build](https://github.com/deadmatedev/rich-or-broke/actions/workflows/build.yml/badge.svg)](https://github.com/deadmatedev/rich-or-broke/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=deadmatedev_rich-or-broke&metric=alert_status)](https://sonarcloud.io/dashboard?id=deadmatedev_rich-or-broke)
-[![jacoco](https://img.shields.io/badge/coverage-100%25-green)](https://github.com/deadmatedev/rich-or-broke/suites/3686775480/artifacts/89833041)
+[![codecov](https://codecov.io/gh/deadmatedev/rich-or-broke/branch/master/graph/badge.svg?token=CB2G17JVDP)](https://codecov.io/gh/deadmatedev/rich-or-broke)
+[![jacoco](https://img.shields.io/badge/jacoco-100%25-green)](https://github.com/deadmatedev/rich-or-broke/suites/3686775480/artifacts/89833041)
 [![dockerhub](https://img.shields.io/docker/pulls/deadmate/rich-or-broke.svg)](https://hub.docker.com/repository/docker/deadmate/rich-or-broke)
 
 # rich-or-broke
