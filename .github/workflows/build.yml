@@ -60,7 +60,7 @@ jobs:
         DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
         DOCKERHUB_PWD: ${{ secrets.DOCKERHUB_PWD }}
 
-    - name: Publish to GitHub Packages
-      run: gradle publish
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- name: Publish to GitHub Packages
+    #  run: gradle publish
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
