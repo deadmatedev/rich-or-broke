@@ -34,6 +34,8 @@ service:
       downTrendQuery: ${DOWNTREND_QUERY:broke}
       zeroTrendQuery: ${ZEROTREND_QUERY:broke}
       helpUrl: ${HELP_URL:https://docs.openexchangerates.org/docs/supported-currencies}
+    asyncstreaming:
+      bufferSize: ${BUFFER_SIZE:131072}
 
 spring:
   web:
