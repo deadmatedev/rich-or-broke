@@ -15,7 +15,7 @@ rate trend calculated for that currency code. Exchange rates are provided by htt
 
 ## Live Demo
 
-With this microservice you can, for example, visualize today's `RUB/USD` exchange rate trend in a `.gif` animation by simply fetching this URL: http://kakoo.hopto.org/trend/RUB
+With this microservice you can, for example, visualize today's `RUB/USD` exchange rate trend in a funny `.gif` animation by simply fetching this URL: http://kakoo.hopto.org/trend/RUB 
 
 [![RUB/USD](http://kakoo.hopto.org/trend/RUB)](http://kakoo.hopto.org/trend/RUB)
 
