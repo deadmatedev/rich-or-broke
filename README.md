@@ -11,7 +11,7 @@
 A simple Spring Boot microservice that returns random gifs based on exchange rates. It exposes just a single GET
 endpoint. Given a 3-letter ISO currency code, returns some
 random `.gif` file from https://giphy.com based on the exchange
-rate trend calculated for that currency code. Exchange rates are provided by https://openexchangerates.org. Base currency is `RUB` but it is customizable. In case of an uptrend, the animation is `rich`, otherwise it is `broke`.
+rate trend calculated for that currency code. Exchange rates are provided by https://openexchangerates.org. Base currency is `USD` but it is customizable. In case of an uptrend, the animation is `rich`, otherwise it is `broke`.
 
 ## Live Demo
 
