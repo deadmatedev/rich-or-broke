@@ -44,7 +44,7 @@ jobs:
       run: gradle clean build sonarqube
       
     - name: Archive Jacoco code coverage results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: jacoco-code-coverage-report
         path: build/reports/jacoco/test/html/
