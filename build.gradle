@@ -56,9 +56,9 @@ test {
 
 jacocoTestReport {
     reports {
-        xml.enabled true
-        csv.enabled false
-        html.enabled true
+        xml.configure { enabled true }
+        csv.configure { enabled false }
+        html.configure { enabled true }
     }
 
     afterEvaluate {
